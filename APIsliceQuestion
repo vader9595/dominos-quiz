@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Domino's Quiz - Pepperoni</title>
+</head>
+<body>
+    <h1>Domino's Quiz</h1>
+    <p>How many slices of pepperoni are in a large pizza?</p>
+    <input type="number" id="answer">
+    <button id="submit">Submit</button>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("submit").addEventListener("click", async () => {
+            const userAnswer = document.getElementById("answer").value;
+
+            const response = await fetch("http://localhost:8080/api/check-pepperoni", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ answer: userAnswer }),
+            });
+
+            const result = await response.json();
+
+            document.getElementById("message").textContent = result.message;
+        });
+    </script>
+</body>
+</html>
