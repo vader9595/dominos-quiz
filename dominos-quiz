@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domino's Quiz</title>
+</head>
+<body>
+    <h1>Domino's Quiz: Item Ingredients</h1>
+    <p>Question: What are the ingredients of the Pepperoni Pizza?</p>
+    
+    <input type="text" id="userAnswer" placeholder="Type your answer here">
+    <button onclick="checkAnswer()">Submit</button>
+    
+    <p id="feedback"></p>
+
+    <script>
+        function checkAnswer() {
+            const userAnswer = document.getElementById("userAnswer").value.trim();
+
+            // Sending the answer to the backend (Spring Boot API)
+            fetch("https://your-backend-url.com/api/quiz/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userAnswer)
+            })
+            .then(response => response.text())
+            .then(message => {
+                document.getElementById("feedback").textContent = message;
+                document.getElementById("feedback").style.color = message.includes("Correct") ? "green" : "red";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById("feedback").textContent = "Something went wrong!";
+            });
+        }
+    </script>
+</body>
+</html>
