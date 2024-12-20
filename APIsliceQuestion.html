@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Domino's Quiz - Pepperoni</title>
+    <title>Domino's Quiz - Slices</title>
 </head>
 <body>
     <h1>Domino's Quiz</h1>
-    <p>How many slices of pepperoni are in a large pizza?</p>
+    <p>How many slices are in a large pizza?</p>
     <input type="number" id="answer">
     <button id="submit">Submit</button>
     <p id="message"></p>
@@ -14,7 +14,7 @@
         document.getElementById("submit").addEventListener("click", async () => {
             const userAnswer = document.getElementById("answer").value;
 
-            const response = await fetch("http://localhost:8080/api/check-pepperoni", {
+            const response = await fetch("http://localhost:8080/api/check-slices-number", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
