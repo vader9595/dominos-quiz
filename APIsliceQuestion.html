@@ -6,7 +6,7 @@
     
 <body>
     
-    <h1> Cool Domino's Quiz</h1>
+    <h1> Cool 2 Domino's Quiz</h1>
     
     <p>How many slices are in a large pizza?</p>
     
@@ -18,7 +18,7 @@
         document.getElementById("submit").addEventListener("click", async () => {
             const userAnswer = document.getElementById("answer").value;
 
-            const response = await fetch("https://localhost:8080/api/check-slices-number", {
+            const response = await fetch("http://localhost:8080/api/check-slices-number", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
