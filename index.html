@@ -21,7 +21,8 @@
         document.getElementById("submit").addEventListener("click", async () => {
             const userAnswer = document.getElementById("answer").value;
 
-            const response = await fetch("http://localhost:8080/api/check-slices-number", {
+            const apiUrl = "http://my-spring-boot-appv5-env.eba-7uugnpfw.us-east-2.elasticbeanstalk.com";
+            const response = await fetch(${apiBaseUrl}/api/check-slices-number, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
