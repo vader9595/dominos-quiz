@@ -22,7 +22,8 @@
             const userAnswer = document.getElementById("answer").value;
 
             const apiUrl = "http://my-spring-boot-appv5-env.eba-7uugnpfw.us-east-2.elasticbeanstalk.com";
-            const response = await fetch(${apiBaseUrl}/api/check-slices-number, {
+            const response = await fetch(`${apiUrl}/api/check-slices-number`, {
+
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
